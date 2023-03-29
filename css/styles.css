@@ -1,0 +1,255 @@
+/* General styles */
+body {
+    background-color: #222;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  header {
+    padding: 20px;
+    text-align: center;
+    background-color: #111;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 4rem;
+  }
+  
+  nav {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    z-index: 1;
+  }
+  
+  /* Menu styles */
+  .menu {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    line-height: 50px;
+    margin-right: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  li {
+    margin: 0 10px;
+    position: relative;
+  }
+  
+  a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  a:hover {
+    color: #bbb;
+  }
+  
+  @media (max-width: 768px) {
+    .menu {
+      display: block;
+      position: static;
+    }
+  
+    .menu-icon {
+      display: inline-block;
+    }
+  
+    ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      background-color: #111;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      width: 200px;
+    }
+  
+    ul li {
+      margin: 5px 0;
+    }
+  
+    ul li:first-child {
+      margin-top: 0;
+    }
+  
+    ul li:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  .menu a {
+    font-size: 24px;
+    padding: 10px;
+  }
+  
+  .menu a:hover {
+    border-bottom: 2px solid #fff;
+  }
+  
+  main {
+    position: relative;
+    color: #fff;
+    padding: 20px;
+    z-index: 2;
+    text-align: center;
+  }
+  
+  .additional-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .additional-star {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: move-star 150s infinite;
+    transition: transform 10s ease-in-out;
+  }
+  
+  @keyframes move-star {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(10px, 10px);
+    }
+  }
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 100%);
+    z-index: -1;
+  }
+  
+  .additional-star:nth-of-type(2n) {
+    background-color: rgba(255, 255, 255, 0.3);
+    animation-duration: 200s;
+  }
+  
+  .additional-star:nth-of-type(3n) {
+    background-color: rgba(255, 255, 255, 0.2);
+    animation-duration: 300s;
+  }
+  
+  footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #222;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    footer p {
+      font-size: 0.8rem;
+    }
+  }
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    footer p {
+      font-size: 0.8rem;
+    }
+  }
+/* Shooting stars */
+.shooting-star {
+    position: absolute;
+    width: 10px;
+    height: 12px;
+    background-color: rgba(55, 53, 53, 0.956);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    animation: shooting-star 1s linear infinite;
+  }
+  
+  @keyframes shooting-star {
+    from {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: translate(100%, 100%) scale(0);
+      opacity: 0;
+    }
+  }
+  
+  /* Randomize shooting star position and animation delay */
+  .randomize-star {
+    animation-delay: calc(3s + var(--delay) * 1s);
+    --x: calc(var(--random-x) * 100%);
+    --y: calc(var(--random-y) * 100%);
+    top: var(--y);
+    left: var(--x);
+  }
+  

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Portfolio</title>
+	<link rel="stylesheet" href="css/intro-styles.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/figure-styles.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="menu">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About Me</a></li>
+					<li><a href="contact.html">Contact Us</a></li>
+					<li><a href="work.html">My Work</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<main>
+		<section class="intro">
+			<h2>Welcome to my portfolio website</h2>
+			<p>Get to know me, check out my work, and let's discuss your next project.</p>
+			<a href="#contact" class="cta-btn">Get in touch</a>
+		</section>
+		<div class="additional-stars"></div>
+		<div class="stars"></div>
+		<div class="twinkling"></div>
+		<div class="shooting-stars"></div>
+		<div class="ufo">
+			<div class="ufo-body">
+				<div class="ufo-light"></div>
+			</div>
+		</div>
+		<div class="planet">
+			<div class="sphere"></div>
+			<div class="clouds"></div>
+			<div class="moon"></div>
+			<div class="satellite"></div>
+		</div>
+	</main>
+	<footer>
+		<p>&copy; 2023 My Portfolio. All rights reserved.</p>
+	</footer>
+	<script src="js/main.js"></script>
+	<script>
+		function rotatePlanet() {
+  const planet = document.querySelector(".planet");
+  planet.style.transform = "rotateY(" + window.pageYOffset / 5 + "deg)";
+  requestAnimationFrame(rotatePlanet);
+}
+requestAnimationFrame(rotatePlanet);
+	</script>
+  <script>
+    // Add shooting stars to the page
+    function addShootingStar() {
+      const star = document.createElement('div');
+      star.classList.add('shooting-star');
+      const trail = document.createElement('div');
+      trail.classList.add('trail');
+      star.appendChild(trail);
+      document.querySelector('.shooting-stars').appendChild(star);
+      setTimeout(() => {
+        star.remove();
+      }, 3000 + Math.random() * 2000);
+    }
+
+    setInterval(addShootingStar, 3000 + Math.random() * 2000);
+  </script>
+</body>
+</html>
